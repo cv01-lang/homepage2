@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Park Jun Hyo — AI & Edutech</title>
+
+  <!-- Tailwind CDN (play CDN) -->
+  <script>
+    // Tailwind 구성: 파스텔톤 블루 + 포인트 색상
+    tailwind = window.tailwind || {};
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E3A8A',       // 진한 푸른색 (포인트)
+            pastel: '#E6F0FF',        // 배경 파스텔 블루
+            accent: '#7C9CFF',        // 강조색
+            silverish: '#BFCFEA'
+          },
+          boxShadow: {
+            soft: '0 6px 18px rgba(30,58,138,0.08)'
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React / ReactDOM (UMD) and Babel for JSX in browser -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    /* 작은 커스텀 스타일 */
+    html,body,#root { height: 100%; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: white; }
+    .card-shadow { box-shadow: var(--tw-shadow, 0 6px 18px rgba(30,58,138,0.06)); }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React 앱 -->
+  <script type="text/babel">
+    const { useEffect } = React;
+
+    function TopNav() {
+      return (
+        <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-white font-semibold text-lg shadow-soft">PJ</div>
+            <div>
+              <div className="text-sm font-medium text-primary">Park Jun Hyo</div>
+              <div className="text-xs text-slate-500">AI & Edutech · Future Classroom</div>
+            </div>
+          </div>
+
+          <nav className="flex items-center gap-4">
+            <a href="#lectures" className="text-sm text-slate-600 hover:text-primary">연수</a>
+            <a href="#projects" className="text-sm text-slate-600 hover:text-primary">프로젝트</a>
+            <a href="#contact" className="text-sm text-slate-600 hover:text-primary">문의</a>
+          </nav>
+        </header>
+      );
+    }
+
+    function Hero() {
+      return (
+        <section className="bg-pastel">
+          <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-primary leading-tight">
+                완도초등학교 교사 박준효
+                <div className="text-xl font-semibold text-slate-600 mt-2">AI & Edutech 기반 미래교육</div>
+              </h1>
+              <p className="text-slate-700 max-w-xl">
+                기술은 도구이고 교육의 본질은 사람입니다. 교사의 행정 부담을 줄여 아이들과 더 많은 시간을 만들고,
+                AI와 에듀테크를 통해 수업의 확장성과 개인화를 지원합니다.
+              </p>
+
+              <div className="flex gap-3">
+                <a href="mailto:jhjhpark0800@gmail.com"
+                   className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-primary text-white font-medium shadow-soft hover:opacity-95">
+                  강의 문의
+                </a>
+                <a href="#projects"
+                   className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl border border-silverish text-primary font-medium bg-white hover:bg-accent/10">
+                  포트폴리오 보기
+                </a>
+              </div>
+
+              <div className="text-sm text-slate-500">
+                대표 주제: <span className="font-medium text-primary">AI, 에듀테크, 미래교실(Future Classroom)</span>
+              </div>
+            </div>
+
+            <div className="flex justify-center md:justify-end">
+              <div className="w-56 h-56 rounded-2xl overflow-hidden border border-silverish bg-white card-shadow">
+                {/* 프로필 이미지는 동일 폴더의 profile.png 사용 */}
+                <img src="profile.png" alt="프로필" className="w-full h-full object-cover"/>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function About() {
+      return (
+        <section id="about" className="max-w-6xl mx-auto px-6 py-14">
+          <h2 className="text-2xl font-bold text-primary mb-4">나는 어떤 선생님인가요?</h2>
+          <div className="prose max-w-none text-slate-700">
+            <p>
+              저는 AI와 에듀테크를 교실에 자연스럽게 녹여내는 것을 목표로 하는 초등 교사입니다.
+              기술은 아이들의 학습을 돕는 도구이며, 무엇보다도 ‘교육의 본질’을 지키는 것을 우선으로 합니다.
+            </p>
+            <p>
+              교사의 시간이 줄어들면 아이들과 함께할 시간이 늘어납니다. 저는 반복적인 행정과 관리업무를 자동화/간소화하여
+              교사들이 학생과 마주하는 본질적인 수업에 더 많은 에너지를 쏟을 수 있도록 돕고자 합니다.
+            </p>
+          </div>
+        </section>
+      );
+    }
+
+    function Experience() {
+      const items = [
+        { title: '완도초등학교', meta: '현직 교사', desc: '교실 혁신과 AI 융합 수업 운영' },
+        { title: 'SW교육체험센터 전담', meta: '지역 교육지원', desc: '교원 대상 체험형 연수 기획·운영' },
+        { title: '교실혁명 선도교사', meta: '학교혁신', desc: '프로젝트 기반 학습 도입 및 확산' },
+        { title: '장관상 수상', meta: '수상', desc: '교육 혁신 부문 장관상 수상 (예시)' },
+      ];
+
+      return (
+        <section id="experience" className="max-w-6xl mx-auto px-6 py-14">
+          <h2 className="text-2xl font-bold text-primary mb-6">Experience & Awards</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {items.map((it, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-100 card-shadow">
+                <div className="text-sm text-slate-500">{it.meta}</div>
+                <div className="text-lg font-semibold text-primary mt-2">{it.title}</div>
+                <div className="text-sm text-slate-600 mt-3">{it.desc}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function Lectures() {
+      const lectures = [
+        { title: 'ChatGPT 실전 연수', desc: '교실에서 활용하는 ChatGPT 활용법과 실습', file: 'chatgpt.pdf' },
+        { title: 'Notion으로 학급 관리하기', desc: 'Notion을 활용한 수업·학급 관리 템플릿 제작', file: 'notion.pdf' },
+        { title: 'Miricanvas를 활용한 창의적 제작', desc: '디지털 도구로 수업 콘텐츠 제작하기', file: 'miricanvas.pdf' },
+        { title: 'AI 기초와 교육 적용', desc: '교사를 위한 AI 개념 정리와 실무 적용 방법', file: null },
+      ];
+
+      return (
+        <section id="lectures" className="max-w-6xl mx-auto px-6 py-14">
+          <h2 className="text-2xl font-bold text-primary mb-6">대표 연수 / Lectures</h2>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            {lectures.map((l, i) => (
+              <div key={i} className="bg-white rounded-2xl p-5 border border-slate-100 card-shadow flex flex-col justify-between">
+                <div>
+                  <div className="text-sm text-slate-500">연수</div>
+                  <div className="text-lg font-semibold text-primary mt-2">{l.title}</div>
+                  <div className="text-sm text-slate-600 mt-3">{l.desc}</div>
+                </div>
+
+                <div className="mt-4 flex items-center gap-3">
+                  {l.file ? (
+                    <a href={l.file} download className="text-sm px-4 py-2 rounded-2xl border border-silverish text-primary hover:bg-accent/10">
+                      다운로드 (PDF)
+                    </a>
+                  ) : (
+                    <span className="text-sm text-slate-400">자료 준비중</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-sm text-slate-500">
+            연수는 학교 맞춤형으로 구성 가능합니다. 강의 시간, 대상(교사/학생), 실습 비중 등 상담 후 조정합니다.
+          </div>
+        </section>
+      );
+    }
+
+    function Projects() {
+      const projects = [
+        { title: 'AI Catch Mind', desc: 'AI 기반 단어 추측 게임', img: 'aicatchmind.png' },
+        { title: '속담 맞추기', desc: '학습용 속담 게임', img: 'proverb-game.png' },
+        { title: '쇼핑 미션', desc: '수학과 연계된 미션형 앱', img: 'shopping-mission.png' },
+        { title: 'TTS Demo', desc: '수업용 음성 합성 데모', img: 'tts-demo.png' },
+      ];
+
+      return (
+        <section id="projects" className="max-w-6xl mx-auto px-6 py-14">
+          <h2 className="text-2xl font-bold text-primary mb-6">Links / Projects</h2>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {projects.map((p, i) => (
+              <div key={i} className="bg-white rounded-2xl p-4 border border-slate-100 card-shadow flex flex-col">
+                <div className="w-full h-36 rounded-xl overflow-hidden bg-slate-50 flex items-center justify-center">
+                  <img src={p.img} alt={p.title} className="w-full h-full object-cover"/>
+                </div>
+                <div className="mt-3">
+                  <div className="text-sm text-slate-500">Project</div>
+                  <div className="text-lg font-semibold text-primary mt-1">{p.title}</div>
+                  <div className="text-sm text-slate-600 mt-2">{p.desc}</div>
+                </div>
+                <div className="mt-4 flex gap-2">
+                  <a href="#" className="text-xs px-3 py-2 border rounded-full text-primary border-silverish">자세히</a>
+                  <a href="#" className="text-xs px-3 py-2 rounded-full bg-accent/20 text-primary">시범</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    function Contact() {
+      return (
+        <section id="contact" className="max-w-6xl mx-auto px-6 py-14">
+          <h2 className="text-2xl font-bold text-primary mb-4">Contact</h2>
+          <div className="bg-white rounded-2xl p-6 border border-slate-100 card-shadow flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <div className="text-lg font-semibold text-primary">강의·연수·컨설팅 문의는 이메일로 연락 주세요.</div>
+              <div className="text-sm text-slate-600 mt-2">학교/기관명, 희망일시, 대상(교사/학생), 예상 인원 등을 적어주시면 빠르게 안내드리겠습니다.</div>
+            </div>
+
+            <div>
+              <a href="mailto:jhjhpark0800@gmail.com"
+                 className="inline-flex items-center px-5 py-3 rounded-2xl bg-primary text-white font-medium shadow-soft">
+                jhjhpark0800@gmail.com
+              </a>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Footer() {
+      const year = new Date().getFullYear();
+      return (
+        <footer className="bg-white border-t border-slate-100 mt-6">
+          <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-sm text-slate-600">Designed for Future Education</div>
+            <div className="text-sm text-slate-500">© {year} Park Jun Hyo. All Rights Reserved.</div>
+          </div>
+        </footer>
+      );
+    }
+
+    function App() {
+      // smooth scroll for hash links
+      useEffect(() => {
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = a.getAttribute('href').slice(1);
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+      }, []);
+
+      return (
+        <div className="min-h-screen flex flex-col">
+          <TopNav />
+          <main className="flex-grow">
+            <Hero />
+            <About />
+            <Experience />
+            <Lectures />
+            <Projects />
+            <Contact />
+          </main>
+          <Footer />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
